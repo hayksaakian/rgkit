@@ -52,6 +52,12 @@ def play(players, print_info=True, animate_render=True):
         render.Render(g, game.settings, animate_render)
         print g.history
 
+    history = "replay_callback("+str(g.history)+");"
+    f = open("../rgreplay/record.js", "w")
+    f.write(history)
+    import webbrowser
+    webbrowser.open_new("file:///Users/hayk/python/rgreplay/replay.html")
+
     return g.get_scores()
 
 def test_runs_sequentially(args):
